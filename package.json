@@ -1,6 +1,6 @@
 {
   "name": "vidal-ngx-sesame",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -10,7 +10,7 @@
     "test-single": "ng test --watch false",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "packagr": "ng-packagr -p ng-package.json"    
+    "packagr": "ng-packagr -p ng-package.json"
   },
   "private": false,
   "dependencies": {
