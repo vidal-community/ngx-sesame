@@ -14,3 +14,4 @@ before_install:
  - sudo dpkg -i google-chrome*.deb
 script:
  - yarn run test-single
+ 
