@@ -1,4 +1,4 @@
-# NgxSesame
+# NgxSesame [![Build Status](https://travis-ci.org/vidal-community/ngx-sesame.svg?branch=master)](https://travis-ci.org/vidal-community/ngx-sesame)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.2.
 
