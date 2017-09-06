@@ -1,19 +1,19 @@
-import { Injectable, Inject, OpaqueToken } from '@angular/core';
-import { Http, Headers, Response } from '@angular/http';
+import { Injectable, Inject, InjectionToken } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { Http, Headers, Response } from '@angular/http';
 import { ReplaySubject } from 'rxjs/ReplaySubject';
-
-import 'rxjs/add/observable/from';
-import 'rxjs/add/observable/of';
-import 'rxjs/add/observable/zip';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/zip';
-import 'rxjs/add/operator/mergeMap';
 
 import * as jsrsasign from 'jsrsasign';
 
-export const SESAME_CONFIG = new OpaqueToken('sesame.config');
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/filter';
+import 'rxjs/add/operator/mergeMap';
+import 'rxjs/add/operator/zip';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/of';
+import 'rxjs/add/observable/empty';
+
+export const SESAME_CONFIG = new InjectionToken<SesameConfig>('service.sesame.config');
 
 export interface SesameConfig {
   apiEndpoint: string;
@@ -111,7 +111,7 @@ export class SesameService {
     return this.http
       .get(`${this.sesameConfig.apiEndpoint}/face/${login}`)
       .map(response => response.text())
-      .catch(() => Observable.of(undefined));
+      .catch(() => Observable.empty());
   }
 
   private checkJwt(jwt, pem): UserInfo {
@@ -158,8 +158,7 @@ export class SesameService {
       .get(`${this.sesameConfig.apiEndpoint}/user/jwt/check`, {
         withCredentials: true
       }).map(r => r.text());
-    Observable
-      .zip(this.pemObservable, httpCheck)
+      this.pemObservable.zip(httpCheck)
       .subscribe(([pem, jwt]) => {
         this.checkJwt(jwt, pem);
       },

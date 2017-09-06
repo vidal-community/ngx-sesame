@@ -1,5 +1,4 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http';
 import { JwtUtils, SesameService, SESAME_CONFIG } from './sesame.service';
 
