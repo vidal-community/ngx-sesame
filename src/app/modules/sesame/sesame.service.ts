@@ -2,10 +2,18 @@ import { Injectable, Inject, OpaqueToken } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { ReplaySubject } from 'rxjs/ReplaySubject';
-export const SESAME_CONFIG = new OpaqueToken('sesame.config');
+
+import 'rxjs/add/observable/from';
+import 'rxjs/add/observable/of';
+import 'rxjs/add/observable/zip';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/zip';
+import 'rxjs/add/operator/mergeMap';
+
 import * as jsrsasign from 'jsrsasign';
 
-import 'rxjs/Rx';
+export const SESAME_CONFIG = new OpaqueToken('sesame.config');
 
 export interface SesameConfig {
   apiEndpoint: string;
