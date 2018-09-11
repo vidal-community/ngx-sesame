@@ -1,6 +1,14 @@
 # NgxSesame [![Build Status](https://travis-ci.org/vidal-community/ngx-sesame.svg?branch=master)](https://travis-ci.org/vidal-community/ngx-sesame)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.2.
+
+## Angular compatibility
+
+You have to use the `ngx-sesame` version that is compatible with your version of [Angular](https://github.com/angular/angular). Here is the compatibility matrix:
+
+| ngx-sesame | Angular    |
+|------------|------------|
+| 0.0.8      | [2.x, 3.x] |
+| 1.0.0      | 6.x        |
 
 ## Development server
 
